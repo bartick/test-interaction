@@ -8,3 +8,6 @@ inputs:
   issue:
     description: 'Write all issue milestone here'
     required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
