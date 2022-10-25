@@ -2,10 +2,11 @@ import * as core from '@actions/core';
 // import * as github from '@actions/github';
 // import { GitHub } from '@actions/github/lib/utils'
 
+import { Collection } from './utils/customMap.class';
+
 async function main() {
   const issue = core.getInput('issue');
-  const issueKeyPair: string[][] = issue.split('\n').map((i) => i.split(':').map((j) => j.trim()));
-  const issueMapping = new Map(issueKeyPair as Iterable<[string, string]>);
+  const issueMapping: Collection<string, string> = new Collection(issue);
   console.log(issueMapping);
 }
 
