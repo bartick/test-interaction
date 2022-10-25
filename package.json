@@ -1,5 +1,5 @@
 {
-  "name": "custom-interactions",
+  "name": "test-interactions",
   "version": "1.0.0",
   "description": "A simple interactions library to help you create interactions for your github issues and pull requests",
   "main": "lib/main.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bartick/custom-interactions.git"
+    "url": "git+https://github.com/bartick/test-interaction.git"
   },
   "keywords": [
     "actions",
@@ -19,9 +19,9 @@
   "author": "bartick",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bartick/custom-interactions/issues"
+    "url": "https://github.com/bartick/test-interaction/issues"
   },
-  "homepage": "https://github.com/bartick/custom-interactions#readme",
+  "homepage": "https://github.com/bartick/test-interaction#readme",
   "dependencies": {
     "@actions/core": "^1.9.1",
     "@actions/exec": "^1.1.1",
