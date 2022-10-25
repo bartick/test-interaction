@@ -4,6 +4,8 @@ on:
     types: [opened]
   pull_request_target:
     types: [opened]
+  push:
+    branches: [ master ]
 
 jobs:
 
@@ -12,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: bartick/test-interaction@master
+    - uses: ./
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         issue: |
