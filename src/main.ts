@@ -4,7 +4,8 @@ import * as core from '@actions/core';
 
 async function main() {
   const issue = core.getInput('issue');
-  const issueMapping = issue.split('\n').map((i) => i.split(':'));
+  const issueKeyPair: string[][] = issue.split('\n').map((i) => i.split(':').map((j) => j.trim()));
+  const issueMapping = new Map(issueKeyPair as Iterable<[string, string]>);
   console.log(issueMapping);
 }
 
