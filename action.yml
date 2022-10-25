@@ -1,4 +1,4 @@
-name: 'Custom Interaction'
+name: 'Test Interaction'
 description: 'A simple interactions library to help you create custom interactions for your github issues and pull requests'
 author: 'bartick'
 inputs: 
