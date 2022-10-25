@@ -8,6 +8,7 @@ async function main() {
   const issue = core.getInput('issue');
   const issueMapping: Collection<string, string> = new Collection(issue);
   console.log(issueMapping);
+  console.log(issueMapping.get('1'));
 }
 
 async function run() {
