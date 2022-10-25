@@ -4,7 +4,8 @@ import * as core from '@actions/core';
 
 async function main() {
   const issue = core.getInput('issue');
-  console.log(issue);
+  const issueMapping = issue.split('\n').map((i) => i.split(':'));
+  console.log(issueMapping);
 }
 
 async function run() {
