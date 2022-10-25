@@ -17,7 +17,7 @@ jobs:
     - uses: ./
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        issue: |
+        issue: 
           1: Hello there
           2: How are you?
           3: I'm fine, thanks
