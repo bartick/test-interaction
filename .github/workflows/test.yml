@@ -15,11 +15,7 @@ jobs:
     - uses: ./
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: |
-          Thanks for opening this issue! One of our maintainers will get back to you shortly.
-        pr-message: |
-          Thanks for opening this PR! One of our maintainers will get back to you shortly.
-        pr-once: false
-        issue-once: false
-        pr-number: 0
-        issue-number: 0
+        issue:
+          1: Hello there
+          2: Hello Here
+          3: What are you doing
