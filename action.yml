@@ -12,12 +12,14 @@ inputs:
     description: 'Write all pull request milestone here'
     required: false
   copy:
-    issue: 
-      description: 'Write all issue copy here'
-      required: false
-    pull_request:
-      description: 'Write all pull request copy here'
-      required: false
+    mapping: 
+      issue: 
+        description: 'Write all issue milestone here'
+        required: false
+      pull_request: 
+        description: 'Write all pull request milestone here'
+        required: false
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
