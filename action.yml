@@ -12,10 +12,13 @@ inputs:
     description: 'Write all pull request milestone here'
     required: false
   copy:
-    - issue: 
+    description: 'Write all copy milestone here'
+    required: false
+    inputs:
+      issue:
         description: 'Write all issue milestone here'
         required: false
-    - pull_request: 
+      pull_request:
         description: 'Write all pull request milestone here'
         required: false
 
