@@ -1,14 +1,43 @@
 import * as core from '@actions/core';
-// import * as github from '@actions/github';
-// import { GitHub } from '@actions/github/lib/utils'
+import * as github from '@actions/github';
+import { GitHub } from '@actions/github/lib/utils'
 
-import { Collection } from './utils/customMap.class';
+import { GithubIssue } from './issue';
 
 async function main() {
-  const issue = core.getInput('issue');
-  const issueMapping: Collection<string, string> = new Collection(issue);
-  console.log(issueMapping);
-  console.log(issueMapping.get('1'));
+  const client: InstanceType<typeof GitHub> = github.getOctokit(core.getInput('token', { required: true }));
+  const context = github.context;
+
+  if (context.payload.action !== 'opened') {
+    console.log('No issue or PR was opened, skipping');
+    return;
+  }
+
+  const isIssue: boolean = !!context.payload.issue;
+  if (!isIssue && !context.payload.pull_request) {
+    console.log(
+      'The event that triggered this action was not a pull request or issue, skipping.'
+    );
+    return;
+  }
+
+  console.log('Checking for existing interactions');
+  if (!context.payload.sender) {
+    throw new Error('Internal error, no sender provided by GitHub');
+  }
+  
+  const sender: string = context.payload.sender!.login;
+  const issue: {owner: string; repo: string; number: number} = context.issue;
+
+  let runner: GithubIssue;
+
+  if (isIssue) {
+    runner = new GithubIssue(client, issue, sender);
+  } else {
+    runner = new GithubIssue(client, issue, sender);
+  }
+
+  await runner.run();
 }
 
 async function run() {
