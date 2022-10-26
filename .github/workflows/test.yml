@@ -26,7 +26,8 @@ jobs:
           2: How are you?
           3: I'm fine, thanks
         copy:
-          - issue: |
-            1: 5, 6, 7
-          - pull_request: |
-            1: 5, 6, 7
+          inputs:
+            issue: |
+              1: 5, 6, 7
+            pull_request: |
+              1: 5, 6, 7
