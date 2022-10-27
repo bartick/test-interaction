@@ -1,23 +1,22 @@
 name: 'Test Interaction'
 description: 'A simple interactions library to help you create custom interactions for your github issues and pull requests'
 author: 'bartick'
-inputs: 
+inputs:
   token:
     description: 'Token for the repository. Can be passed in using {{ secrets.GITHUB_TOKEN }}'
     required: true
-  issue:
+  issue-message:
     description: 'Write all issue milestone here'
     required: false
-  pull_request:
+  issue-copy: 
+    description: 'Write all issue copy here'
+    required: false
+  pr-message:
     description: 'Write all pull request milestone here'
     required: false
-  inputs:
-    issue:
-      description: 'Write all issue milestone here'
-      required: false
-    pull_request:
-      description: 'Write all pull request milestone here'
-      required: false
+  pr-copy:
+    description: 'Write all pull request copy here'
+    required: false
 
 runs:
   using: 'docker'

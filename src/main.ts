@@ -8,6 +8,9 @@ async function main() {
   const client: InstanceType<typeof GitHub> = github.getOctokit(core.getInput('token', { required: true }));
   const context = github.context;
 
+  console.log(core.getInput('issue-message'));
+  return;
+
   if (context.payload.action !== 'opened') {
     console.log('No issue or PR was opened, skipping');
     return;
