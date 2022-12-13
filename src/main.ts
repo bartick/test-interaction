@@ -8,7 +8,12 @@ async function main() {
   const client: InstanceType<typeof GitHub> = github.getOctokit(core.getInput('token', { required: true }));
   const context = github.context;
 
-  console.log(process.env);
+  for(const key in Object.keys(process.env)) {
+    if(key.startsWith('INPUT_MESSAGE_')) {
+      console.log(key);
+      console.log(process.env[key]);
+    }
+  }
   return;
 
   if (context.payload.action !== 'opened') {
