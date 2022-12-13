@@ -8,7 +8,7 @@ async function main() {
   const client: InstanceType<typeof GitHub> = github.getOctokit(core.getInput('token', { required: true }));
   const context = github.context;
 
-  console.log(core.getInput('issue-message'));
+  console.log(process.env);
   return;
 
   if (context.payload.action !== 'opened') {

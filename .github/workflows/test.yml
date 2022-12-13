@@ -17,6 +17,7 @@ jobs:
     - uses: ./
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
+        helllo: "hi"
         issue-message: |
           1: Hello there
           This is the followup line
