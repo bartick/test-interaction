@@ -1,7 +1,9 @@
 FROM node:20.11.1
 
-COPY . .
+WORKDIR /app
+
+COPY . /app
 
 RUN npm install --omit=dev
 
-ENTRYPOINT ["node", "/lib/main.js"]
+ENTRYPOINT ["node", "/app/lib/main.js"]

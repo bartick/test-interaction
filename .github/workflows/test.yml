@@ -18,10 +18,10 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         issue-message: |
-          1: Hello there
+          9: Hello there
           This is the followup line
-          2: How are you?
-          3: I'm fine, thanks
+          8: How are you?
+          7: I'm fine, thanks
         issue-copy: |
           1: 5, 6, 7, 8, 9, 10
           2: 1, 2, 3, 4, 5, 6
