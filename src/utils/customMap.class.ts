@@ -14,21 +14,7 @@ export class Collection<K, V> extends Map<K, V> {
     }
 
     parseMessage(message: string) {
-        /**
-         * 1: Hello there
-          This is the followup line
-         * 2: How are you?
-         * 3: I'm fine, thanks
-         * 
-         * to 
-         * {
-         * "1": "Hello there\nThis is the followup line",
-         * "2": "How are you?",
-         * "3": "I'm fine, thanks"
-         * }
-         */
 
-        
         const messageArray = message.split('\n');
         let key: K = '1' as unknown as K;
         let value: V = '' as unknown as V;

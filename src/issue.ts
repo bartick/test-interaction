@@ -56,6 +56,8 @@ export class GithubIssue {
     }
 
     async comment(): Promise<void> {
+        console.log(this.messageCollection)
+        console.log(this._number.toString())
         const message = this.messageCollection.get(this._number.toString());
         if (!message) {
             console.log('Issue not mentioned in config, skipping');
