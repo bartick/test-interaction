@@ -21,7 +21,7 @@ export class GithubIssue {
     private owner: string; 
     private repo: string; 
     private _number: number; 
-    private sender: string; 
+    private _sender: string; 
     private client: InstanceType<typeof GitHub>;
     private messageCollection: Collection<string, string>;
 
@@ -34,19 +34,28 @@ export class GithubIssue {
         this.owner = issue.owner;
         this.repo = issue.repo;
         this._number = issue.number;
-        this.sender = sender;
-        this.messageCollection = new Collection(core.getInput('issue'));
+        this._sender = sender;
+        this.messageCollection = this.messageParser();
     }
 
-    copyChecker() {
-        const copy = core.getInput('copy');
-        console.log(copy);
-        // if (copy) {
-        //     this.messageCollection.addValues(copy as Iterable<[string, Iterable<string>]>);
-        // }
+    messageParser(): Collection<string, string> {
+        const message = core.getInput('issue-message');
+
+        const messageCollection = new Collection<string, string>();
+
+        messageCollection.parseMessage(message);
+
+        return messageCollection;
     }
 
-    async comment() {
+    copyParser(): void {
+        const copy = core.getInput('issue-copy');
+        if (!copy) {
+            return;
+        }
+    }
+
+    async comment(): Promise<void> {
         const message = this.messageCollection.get(this._number.toString());
         if (!message) {
             console.log('Issue not mentioned in config, skipping');
@@ -61,8 +70,7 @@ export class GithubIssue {
         });
     }
 
-    async run() {
-        this.copyChecker();
+    async run(): Promise<void> {
         await this.comment();
     }
 }
